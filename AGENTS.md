@@ -333,26 +333,27 @@ For projects with meaningful versioning, milestone releases, or durable rollback
 - Do not let it become marketing copy, vague filler, or a changelog dump.
 - Update it at session end if the project state changed.
 
-## Git Workflow and Recovery
+## Git / Versioning Safety
 
-- Default branch strategy is commit-to-main unless I specify otherwise. Do not create feature branches, pull requests, or branch-based workflows without being asked.
-- Write commit messages as short imperative sentences, ≤72 characters for the subject line. e.g. `Add login screen`, `Fix empty CSV export crash`. Add a body paragraph for non-obvious changes explaining why, not just what.
-- At session end, commit completed work with a clear message. Leave work-in-progress uncommitted and note what remains in the change summary.
-- If no baseline commit exists, the Ask-First Gate applies before material edits.
-- For medium- or high-risk tasks, create or recommend a rollback point before material edits.
-- Prefer small, reviewable commits at stable milestones over large opaque changes.
-- History rewrites, resets, and destructive git actions require Ask-First approval.
-- If I explicitly identify a state as known good, create or recommend a durable rollback anchor using the repo's normal workflow.
-- Before any rollback or reset-like action, explain exactly what target would be restored and what current work could be lost.
-
-## Versioning
-
-- Use an ever-increasing build number for every build across the life of the project.
-- Increment the patch version automatically for each build by default.
-- Do not bump the minor or major version without my explicit approval. Bumps can be suggested with brief reasoning, but not applied automatically.
-- App marketing version and build number must come from source-controlled files, not from local caches, `.build/`, DerivedData, or other untracked machine-specific state. Before any release build, report the exact version that will be produced and stop if local state could alter it. Update versioning files in the same commit as the build change.
-- Prefer deterministic versioning that reproduces the same app version/build from the same committed source.
-- For projects that publish through CI, prefer workflows where a pushed checked-in version bump on `main` automatically creates or updates the corresponding GitHub Release. Do not require a separate manual tag push unless the project brief or decision log explicitly prefers tag-driven releases.
+- Personal/unpublished projects may work directly on `main`.
+- Published or release-managed projects should treat `main` as stable/shippable.
+- Do not create, delete, switch, merge, push, tag, reset, rebase, cherry-pick, or create worktrees unless explicitly instructed.
+- Do not create Codex-managed temporary worktrees unless explicitly approved.
+- Before material edits, report:
+  - current working directory,
+  - current branch,
+  - `git status --short`.
+- Read `docs/agent-rules/git-workflow.md` when tasks touch:
+  - branches,
+  - worktrees,
+  - commits,
+  - pushes,
+  - releases,
+  - tags,
+  - rollback,
+  - versioning,
+  - CI/release flow,
+  - App Store/TestFlight/distribution workflows.
 
 ## Performance, Reliability, and Output Quality
 
@@ -457,4 +458,6 @@ When in doubt on safety, privacy, data integrity, destructive operations, permis
   
 - `docs/agent-rules/local-rtk.md`
   - Read only when `rtk` is available on PATH or the user asks about RTK/token-compressed command output.
-
+  
+- `docs/agent-rules/third-party-dependencies-media-assets.md`
+  - Read this file when the task touches Third-Party dependencies, media and assets.
