@@ -1,3 +1,15 @@
-# Decisions
+# Decision Log
 
-Use this file as a concise decision log for project-specific architectural, behavioral, tooling, and scope decisions.
+Use this file for durable project decisions. Append entries; do not delete old decisions. Mark reversed or superseded decisions clearly.
+
+## Format
+
+```md
+## YYYY-MM-DD — Short decision title
+
+Status: approved | superseded | reversed
+
+Decision: ...
+
+Rationale: ...
+```
