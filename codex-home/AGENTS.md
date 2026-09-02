@@ -17,6 +17,8 @@ Personal defaults for every project. Repository `AGENTS.md` files should contain
 - Specialists do not spawn agents. Prefer bounded consultation over takeover; Luna resumes ownership afterward. Do not spawn Sol merely to review routine work.
 - When uncertain whether a decision is consequential enough to merit stronger reasoning, bias toward a bounded Sol consultation rather than silently making the consequential choice in Luna.
 - Default Sol to medium reasoning when selectable; use higher effort only for a concrete reason or explicit user direction. Send Sol the smallest useful package of evidence, attempts/outcomes, hypotheses/options, and the exact decision needed.
+- **Worker availability is a scheduling constraint, not a task failure.** If a useful delegation cannot start because the concurrent worker/agent limit has been reached, do not fail, abandon the work, or ask the owner merely because capacity is unavailable. Continue any independent work that can proceed, wait for an active worker to finish when necessary, then start the deferred delegation. Parallelize when capacity is available and useful; otherwise perform delegated work sequentially. Do not reduce verification or skip a warranted specialist consultation because all worker slots are occupied.
+- **Use task-oriented delegation labels.** When spawning or reporting delegated work, identify each worker by a short label describing its specific assignment, such as `Investigate render failure`, `Review persistence design`, or `Test HDR regression`. Prefer assignment labels over arbitrary runtime nicknames, generic role names, or model names. If the Codex interface permits an explicit semantic worker name, use the assignment label as that name.
 
 ## Autonomy and boundaries
 
